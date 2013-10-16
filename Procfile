@@ -1,1 +1,1 @@
-web: bin/hubot -a irc -n mumbot
+web: bin/hubot -a mumble -n mumbot
