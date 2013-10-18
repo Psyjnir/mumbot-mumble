@@ -22,7 +22,7 @@
   "dependencies": {
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
-		"hubot-mumble": "git://github.com/cbpowell/hubot-mumble#03b84d3cdb60e4cea9bd723106d9740a23fa21e2"
+		"hubot-mumble": "git://github.com/cbpowell/hubot-mumble#ef3c5ec586b18c012e74c282d82b6aba64591948"
   },
   "engines": {
     "node": ">= 0.8.x",
