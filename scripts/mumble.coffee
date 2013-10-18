@@ -23,7 +23,7 @@
 
 module.exports = (robot) ->
 	robot.enter (msg) ->
-		console.log msg.user
+		console.log "Debugging: " + msg.user
 	robot.leave (msg) ->
-		console.log msg.user
+		console.log "Debugging: " + msg.user
 			
