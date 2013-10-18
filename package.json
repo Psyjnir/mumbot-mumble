@@ -22,7 +22,7 @@
   "dependencies": {
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
-		"hubot-mumble": "https://github.com/cbpowell/hubot-mumble/tarball/master"
+		"hubot-mumble": "git://github.com/cbpowell/hubot-mumble#03b84d3cdb60e4cea9bd723106d9740a23fa21e2"
   },
   "engines": {
     "node": ">= 0.8.x",
