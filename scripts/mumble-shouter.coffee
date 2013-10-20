@@ -26,9 +26,10 @@ module.exports = (robot) ->
 	robot.leave (msg) ->
 		console.log msg.envelope
     
-  robot.router.get '/status/userList/', (req, res) ->
+  robot.router.get '/status/userList', (req, res) ->
     console.log "User list requested"
-    
+    res.end "DONE"
+    ###
     users = robot.brain.users
     activeUsers = {}
     for user of users
@@ -37,3 +38,4 @@ module.exports = (robot) ->
     
     res.setHeader "Content-Type", "application/json"
     res.end JSON.stringify activeUsers
+    ###
