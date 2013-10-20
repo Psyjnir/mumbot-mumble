@@ -24,9 +24,9 @@ module.exports = (robot) ->
     res.setHeader "Content-Type", "application/json"
     res.end JSON.stringify activeUsers
     
-	robot.enter (msg) ->
+  robot.enter (msg) ->
     # Hit partner endpoint with info
-    user = msg.envelope.user  
+    user = msg.envelope.user
     userName = encodeURIComponent user.name
     userRoom = encodeURIComponent user.room
     robot.http(process.env.HUBOT_MUMBLE_PARTNER_URL)
@@ -34,6 +34,6 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         # error checking code here
         console.log "Partner says: #{body}"
-    
-	robot.leave (msg) ->
-		console.log msg.envelope
+
+  robot.leave (msg) ->
+    console.log msg.envelope
