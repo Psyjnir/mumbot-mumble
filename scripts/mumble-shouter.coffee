@@ -12,17 +12,29 @@
 #
 
 module.exports = (robot) ->
-  robot.router.get "/mumble/userList", (req, res) ->
-    console.log "User list requested"
+  robot.router.get "/mumble/userList/:channel", (req, res) ->
+    mumbleChannel = req.params.channel
+    if mumbleChannel
+      console.log "#{mumbleChannel} User List Requested"
+    else
+      console.log "Overall User list requested"
+    
     users = robot.brain.data.users
     console.log users
-    activeUsers = {}
+    activeUsers = []
     for key, value of users
-      unless value.room is null
-        activeUsers[value.name] = value.room
+      userName = value.name
+      userRoom = value.room
+      unless userRoom is null
+        if not mumbleChannel? or ((userRoom.toLowerCase() is mumbleChannel.toLowerCase())
+          activeUsers.push {name:userName, room:userRoom}
     
+    payload =
+      channel: mumbleChannel.toLowerCase(),
+      users: activeUsers
+              
     res.setHeader "Content-Type", "application/json"
-    res.end JSON.stringify activeUsers
+    res.end JSON.stringify payload
     
   robot.enter (msg) ->
     # Hit partner endpoint with info
