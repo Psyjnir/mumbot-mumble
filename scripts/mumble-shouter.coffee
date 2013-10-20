@@ -35,6 +35,5 @@ module.exports = (robot) ->
       unless user.room is null
         activeUsers[user.name] = user.room
     
-    res.json(activeUsers)
-    res.end "JOIN NOTED"
-			
+    res.setHeader "Content-Type", "application/json"
+    res.end JSON.stringify activeUsers
