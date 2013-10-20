@@ -24,10 +24,6 @@ module.exports = (robot) ->
     res.setHeader "Content-Type", "application/json"
     res.end JSON.stringify activeUsers
     
-    #res.setHeader 'content-type', 'text/html'
-    #res.end helpContents robot.name, emit
-    
-###
 	robot.enter (msg) ->
     # Hit partner endpoint with info
     user = msg.envelope.user  
@@ -41,22 +37,3 @@ module.exports = (robot) ->
     
 	robot.leave (msg) ->
 		console.log msg.envelope
-    
-  robot.router.get "/user/:name/joined/:channel", (req, res) ->
-    userName = req.params.name
-    mumbleChannel = req.params.channel
-    
-    console.log "User: #{userName} to Channel: #{mumbleChannel}"
-    res.end "JOIN NOTED"
-  
-  robot.router.get '/status/userList', (req, res) ->
-    console.log "User list requested"
-    users = robot.brain.users
-    activeUsers = {}
-    for user of users
-      unless user.room is null
-        activeUsers[user.name] = user.room
-    
-    res.setHeader "Content-Type", "application/json"
-    res.end JSON.stringify activeUsers
-###
