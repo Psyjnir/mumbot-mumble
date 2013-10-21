@@ -30,7 +30,7 @@ module.exports = (robot) ->
           activeUsers.push {name:userName, room:userRoom}
     
     payload =
-      channel: mumbleChannel.toLowerCase()
+      channel: if mumbleChannel? then mumbleChannel.toLowerCase() else null
       users: activeUsers
               
     res.setHeader "Content-Type", "application/json"
