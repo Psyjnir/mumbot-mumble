@@ -12,7 +12,7 @@
 #
 
 module.exports = (robot) ->
-  robot.router.get "/mumble/userList/:channel", (req, res) ->
+  robot.router.get "/mumble/userList/:channel?", (req, res) ->
     mumbleChannel = req.params.channel
     if mumbleChannel
       console.log "#{mumbleChannel} User List Requested"
