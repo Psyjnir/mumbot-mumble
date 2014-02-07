@@ -1,6 +1,6 @@
 {
-  "name": "hosted-hubot",
-  "version": "2.6.3",
+  "name": "mumbot-mumble",
+  "version": "2.7.1",
   "author": "GitHub Inc.",
   "keywords": [
     "github",
@@ -8,7 +8,7 @@
     "campfire",
     "bot"
   ],
-  "description": "A simple helpful robot for your Company",
+  "description": "An Mumble-to-IRC Hubot",
   "licenses": [
     {
       "type": "MIT",
