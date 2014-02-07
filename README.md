@@ -1,4 +1,30 @@
-# Hubot
+# Mumbot (Mumble)
+
+Mumbot-mumble is an instance of Github's Hubot, designed to idle in a [Mumble server](http://mumble.sourceforge.net). Mumbot-mumble will send updates on the users and status of the Mumble server to a parter Mumbot instance idling in an IRC channel.
+
+Mumbot currently supports:
+- Automatically announcing joins and parts from the Mumble channel
+- Requesting a userlist of all users on the Mumble channel
+- Requesting a userlist for a specific Mumble room
+
+See [mumbot-irc](https://github.com/cbpowell/mumbot-irc) for the IRC half of Mumbot. Mumbot-irc is the parter to mumbot-mumble, and is what receives the information sent by mumbot-mumble.
+
+Mumbot-mumble uses a custom Mumble Hubot adapter, found at [hubot-mumble](https://github.com/cbpowell/hubot-mumble) for the Mumble hubot adapter. Hubot-mumble uses a custom version of the [node-mumble](https://github.com/cbpowell/node-mumble/tree/reduction) Node.js library in order to communiate with the Mumble server via the [Mumble protocol](http://mumble.sourceforge.net/Protocol).
+
+The [mumble-shouter.coffee](https://github.com/cbpowell/mumbot-mumble/blob/master/scripts/mumble-shouter.coffee) Hubot script does all the heavy lifting for this half of the Mumbot setup. It establishes the HTTP endpoints and crafts the outgoing HTTP requests in order to provide communication with its mumbot-irc partner, which uses the  [mumble-listener.coffee](https://github.com/cbpowell/mumbot/blob/master/scripts/mumble-listener.coffee) script. When deploying Mumbot to Heroku, you need to set up the following Heroku config options:
+
+- `HUBOT_MUMBLE_CERTPATH:    ./MumbleCert.p12` Defines the (local) path to a [Mumble certificate](http://mumble.sourceforge.net/Mumble_Certificates)
+- `HUBOT_MUMBLE_NICK:        mumbot` Defines the nickname to use on the Mumble server
+- `HUBOT_MUMBLE_PASSWORD:    serverPass` Defines the password for the server, if needed
+- `HUBOT_MUMBLE_PATH:        mumble://yourServer.net/roomToJoin` Defines the [Mumble URL](http://mumble.sourceforge.net/Mumble_URL) to use when joining the Mumble server
+- `HUBOT_MUMBLE_PARTNER_URL: "https://other_mumble_hubot_name.herokuapp.com"` Defines the URL of the parter mumbot-irc instance
+
+Likewise, the `mumbot-irc` instance will need to know the URL of the mumbot-irc instance.
+
+
+
+
+# Generic Hubot Info
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
 
